@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { Box } from '@mui/material';
 import { SubmitButton, AminoAcidInput, Output } from 'components';
 import { getAlignmentLines } from 'utils';
 import { AminoAcidsType, IFormInput, Letter } from 'types';
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <main className={styles.container}>
-      <div className={styles.wrapper}>
+      <Box className={styles.wrapper}>
         <h1 className={styles.title}>Sequence Alignment</h1>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.inputs}>
@@ -58,7 +59,7 @@ function App() {
           <SubmitButton type="submit" />
         </form>
         <Output line1={line1} line2={line2} />
-      </div>
+      </Box>
     </main>
   );
 }
