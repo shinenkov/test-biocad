@@ -1,15 +1,17 @@
-import { useEffect, useMemo, useState } from "react";
-import { useMediaQuery, CssBaseline } from "@mui/material";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import App from "app/App";
+import { useEffect, useMemo, useState } from 'react';
+import { useMediaQuery, CssBaseline } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import App from 'app/App';
 
 export default function ThemeController() {
-  const isSystemDark = useMediaQuery("(prefers-color-scheme: dark)");
+  const isSystemDark = useMediaQuery('(prefers-color-scheme: dark)');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [mode, _setMode] = useState<"light" | "dark">(isSystemDark ? "dark" : "light");
+  const [mode, _setMode] = useState<'light' | 'dark'>(
+    isSystemDark ? 'dark' : 'light'
+  );
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", mode);
+    document.documentElement.setAttribute('data-theme', mode);
   }, [mode]);
   const theme = useMemo(
     () =>
@@ -18,7 +20,7 @@ export default function ThemeController() {
           mode,
         },
       }),
-    [mode],
+    [mode]
   );
 
   return (

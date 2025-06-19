@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Typography, useTheme } from '@mui/material';
 import { Letter } from 'types';
 
 type LineProps = {
@@ -8,6 +8,7 @@ type LineProps = {
 
 const Line = (props: LineProps) => {
   const { line, bgTransform } = props;
+  const theme = useTheme();
 
   return (
     <Typography
@@ -28,6 +29,10 @@ const Line = (props: LineProps) => {
           key={i}
           style={{
             background: bgTransform(l),
+            color:
+              theme.palette.mode === 'dark' && bgTransform(l) === 'transparent'
+                ? theme.palette.common.white
+                : theme.palette.common.black,
             borderRadius: 3,
             padding: '0 2px',
             margin: '0 1px',
